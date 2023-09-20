@@ -1,0 +1,23 @@
+.sm_main_container {
+  background-color: #252D3B;
+  border-radius: 20px;
+}
+
+.sm_item {
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.sm_item:hover {
+  background-color: $dark;
+}
+
+.sm_item:active {
+  background-color: $light;
+}
+
+.sm_item_text {
+  color: $light;
+  font-size: 15px;
+  font-weight: bold;
+}

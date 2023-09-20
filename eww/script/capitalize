@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+  echo "Missing parameters"
+  exit 1
+fi
+
+STR="${1^}"
+echo "${STR/-/ }"
+exit 0

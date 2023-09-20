@@ -1,0 +1,10 @@
+{
+  "radius": 20,
+  "wallpaper": "/home/ekoehler/Pictures/walls/nord.jpg",
+  "dock_images": [
+      "/home/ekoehler/Pictures/icons/discord.png"
+  ],
+  "dock_paths": [
+    "/bin/discord"
+  ]
+}

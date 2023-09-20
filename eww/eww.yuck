@@ -1,0 +1,5 @@
+(include "./bar/eww.yuck")
+(include "./dock/eww.yuck")
+(include "./launchpad/eww.yuck")
+(include "./shutdown_menu/eww.yuck")
+(include "./musicPlayer/eww.yuck")

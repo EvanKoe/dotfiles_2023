@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "USAGE ./wifi OPTION"
+  echo -e "\t0: connected network"
+  exit 1
+fi
+
+case "$1" in
+  "0") 
+# sudo iwctl wlan0 show | grep "Connected "

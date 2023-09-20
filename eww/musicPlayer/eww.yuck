@@ -1,0 +1,98 @@
+;;
+;; Variables
+;;
+(defpoll artUrl :interval "5s"
+  `spotifycli --arturl`
+)
+
+(defpoll musicTitle :interval "5s"
+  `spotifycli --song`[]
+)
+
+(defpoll musicArtist :interval "5s"
+  `spotifycli --artist`
+)
+
+;;
+;; Window
+;;
+(defwindow musicPlayer
+  :monitor 0
+  :stacking "fg"
+  :focusable false
+  :geometry (geometry
+    :anchor "top right"
+    :width "400px"
+    :height "300px"
+    :y "60px"
+    :x "20px"
+  )
+  (box
+    :orientation 'v'
+    :space-evenly false
+
+    (box
+      :class "musicPlayerBox"
+      :space-evenly false
+
+      ;; cover
+      (box
+        :class "artImage"
+        :width 100
+        :height 100
+        :hexpand false
+        :style 'background-image: url("${artUrl}");'
+      )
+
+      (box
+        :orientation 'v'
+        :space-evenly false
+        :hexpand true
+
+        ;; title
+        (label
+          :text {musicTitle}
+          :class "onSecondary"
+          :style "font-size: 20px;"
+        )
+
+        ;; artist
+        (label
+          :text {musicArtist}
+          :class "onSecondary"
+          :style "font-weight: normal;"
+        )
+
+        ;; previous pause next
+        (box
+          :orientation "h"
+          :style "margin-top: 12px;"
+
+          (eventbox :onclick "spotifycli --prev &"
+            (label
+              :text "⏮"
+              :class "onSecondary"
+              :style "font-size: 40px"
+            )
+          )
+
+          (eventbox :onclick "spotifycli --playpause &"
+            (label
+              :text {isPlaying}
+              :class "onSecondary"
+              :style "font-size: 40px;"
+            )
+          )
+
+          (eventbox :onclick "spotifycli --next &"
+            (label
+              :text "⏭"
+              :class "onSecondary"
+              :style "font-size: 40px;"
+            )
+          )
+        )
+      )
+    )
+  )
+)

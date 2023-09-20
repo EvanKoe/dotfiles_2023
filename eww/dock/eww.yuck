@@ -1,0 +1,74 @@
+(defwindow dock
+  :geometry (geometry
+    :width 900
+    :height 80
+    :y 0
+    :anchor "bottom center"
+  )
+  :exclusive true
+  :monitor 0
+  :stacking "fg"
+  :focusable false
+  (box
+    :class "dock_container"
+    ;
+    ; Quick start apps
+    ;
+    (app
+      :path "/home/ekoehler/Pictures/icons/Terminal.png"
+      :cmd "cd $HOME && kitty -e tmux &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Chrome.png"
+      :cmd "google-chrome-stable &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Explorer.png"
+      :cmd "nemo &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Discord.png"
+      :cmd "discord &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Ferdium.png"
+      :cmd "ferdium &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Spotify.png"
+      :cmd "spotify &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/parsec_macos.png"
+      :cmd "parsecd &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/wpsOffice.png"
+      :cmd "wps &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Zoom.png"
+      :cmd "zoom &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Launchpad.png"
+      :cmd "wofi -s $HOME/.config/wofi/style.css --allow-images -w 2 --hide_scroll --show drun &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Shutdown.png"
+      :cmd "eww open --toggle shutdown_menu"
+    )
+  )
+)
+
+(defwidget app [path cmd]
+  (eventbox
+    :onclick cmd
+    :class "dock_app"
+    (image
+      :image-width 60
+      :image-height 60
+      :path path
+    )
+  )
+)

@@ -1,0 +1,36 @@
+.launchpad_bg {
+  border-radius: 0;
+}
+
+.launchpad_main_container {
+  margin: 300px 400px;
+}
+
+.launchpad_container {
+  background-color: $dark;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 12px;
+  color: $light;
+}
+
+.launchpad_hour {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  font-size: 90px;
+  font-weight: bold;
+}
+
+.lp_date {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.launchpad_shutdownmenu_item {
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.launchpad_shutdownmenu_item:active {
+  background-color: $light;
+}

@@ -1,0 +1,32 @@
+$light:  #AEC6FF;
+$dark : #354055;
+
+.bar {
+  background-color: #000;
+}
+
+.container {
+  background-color: $dark;
+  border-radius: 50px;
+  margin: 3px;
+}
+
+.lcontainer {
+  background-color: $light;
+  border-radius: 50px;
+  margin: 3px;
+}
+
+.onSecondary {
+  color: $light;
+  font-weight: bold;
+  margin: 0 12px;
+  transition: 0.2s all ease-in-out;
+}
+
+.onPrimary {
+  color: $dark;
+  font-weight: bold;
+  margin: 0 12px;
+  transition: 0.2s all ease-in-out;
+}

@@ -1,0 +1,229 @@
+;
+; variables
+;
+(defpoll full_date :interval "30s"
+  `date +'%A %d %b'`
+)
+
+(defpoll wifi :interval "30s"
+  `$HOME/.config/eww/script/wifi`
+)
+
+(defpoll bt_connected :interval "10s"
+  `$HOME/.config/eww/script/bluetooth.sh`
+)
+
+;
+; Windows
+;
+(defwindow launchpad
+  :geometry (geometry
+    :x 0
+    :y 0
+    :width "100%"
+    :height "100%"
+    :anchor "top left"
+  )
+  :focusable true
+  :monitor 0
+  :stacking "fg"
+  :style "border-radius: 0"
+  (menu)
+)
+
+(defwidget menu []
+  (overlay
+    :class "launchpad_bg"
+    (image
+      :image-height 1080
+      :image-width 1920
+      :path "/home/ekoehler/Pictures/screenshots/eww_screen.jpg"
+    )
+    (box
+      :class "launchpad_main_container"
+      :width 700
+      :height 600
+      :orientation "v"
+      :space-evenly false
+      :vexpand false
+      :hexpand false
+      (box
+        :height 200
+        :orientation "h"
+        (hour)
+        (box :orientation "v"
+          (shutdown_menu)
+          (quicklaunch)
+        )
+        (calendar
+          :class "launchpad_container"
+          :show-heading false
+          :show-details true
+        )
+      )
+      (box
+        :orientation "h"
+        (wifi)
+        (bt)
+        (battery)
+        (volume)
+      )
+    )
+  )
+)
+
+;
+; widgets
+;
+
+; Hour
+(defwidget hour []
+  (box
+    :height 200
+    :width 400
+    :orientation "v"
+    :space-evenly false
+    :class "launchpad_container"
+    :style "margin: 0"
+    (label :text time :class "launchpad_hour")
+    (label :text full_date :class "lp_date")
+  )
+)
+
+; shutdown_menu
+(defwidget shutdown_menu []
+  (box
+    :class "launchpad_container"
+    :orientation "h"
+    (eventbox
+      :class "launchpad_shutdownmenu_item"
+      :onclick "sudo systemctl poweroff"
+      (image
+        ;image-width 50
+        :image-height 50
+        :path "/home/ekoehler/Pictures/icons/shutdown.png"
+      )
+    )
+    (eventbox
+      :class "launchpad_shutdownmenu_item"
+      :onclick "sudo systemctl restart"
+      (image
+        ;image-width 50
+        :image-height 50
+        :path "/home/ekoehler/Pictures/icons/reboot.png"
+      )
+    )
+    (eventbox
+      :class "launchpad_shutdownmenu_item"
+      :onclick "hyprctl dispatch exit"
+      (image
+        ;image-width 50
+        :image-height 50
+        :path "/home/ekoehler/Pictures/icons/logout.png"
+      )
+    )
+  )
+)
+
+; quicklaunch
+(defwidget quicklaunch []
+  (box
+    :orientation "h"
+    :class "launchpad_container"
+    (eventbox
+      :onclick "$HOME/.config/eww/script/launchpad.sh && steam &"
+      (image
+        :image-width 50
+        :image-height 50
+        :path "/home/ekoehler/Pictures/icons/steam.png"
+      )
+    )
+    (eventbox
+      :onclick "$HOME/.config/eww/script/launchpad.sh && steam steam://rungameid/2357570 &"
+      (image
+        :image-width 50
+        :image-height 50
+        :path "/home/ekoehler/Pictures/icons/overwatch2.png"
+      )
+    )
+    (eventbox
+      :onclick "$HOME/.config/eww/script/launchpad.sh && minecraft-launcher &"
+      (image
+        :image-width 50
+        :image-height 50
+        :path "/home/ekoehler/Pictures/icons/minecraft.png"
+      )
+    )
+  )
+)
+
+(defwidget lpbattery []
+  (box
+    :class "launchpad_container"
+    (circular-progress
+      :value battery
+      :start-at 0
+      :thickness 10
+    )
+  )
+)
+
+(defwidget wifi []
+  (box
+    :class "launchpad_container"
+    :orientation "h"
+    :space-evenly false
+    (image
+      :image-height 40
+      :image-width 40
+      :path "/home/ekoehler/Pictures/icons/wifi.png"
+      :style "margin: 0 20px"
+    )
+    (label :text wifi :class "lp_date")
+  )
+)
+
+(defwidget bt []
+  (box
+    :class "launchpad_container"
+    :orientation "h"
+    :space-evenly false
+    (image
+      :image-height 40
+      :image-width 40
+      :path "/home/ekoehler/Pictures/icons/bluetooth.png"
+      :style "margin: 0 20px"
+    )
+    (label :text bt_connected :class "lp_date")
+  )
+)
+
+(defwidget battery []
+  (box
+    :class "launchpad_container"
+    :orientation "h"
+    :space-evenly false
+    (image
+      :image-height 40
+      :image-width 40
+      :style "margin: 0 20px"
+      :path "/home/ekoehler/Pictures/icons/battery.png"
+    )
+    (label :text "${battery}%" :class "lp_date")
+  )
+)
+
+(defwidget volume []
+  (box
+    :class "launchpad_container"
+    :orientation "h"
+    :space-evenly false
+    (image
+      :image-height 40
+      :image-width 40
+      :style "margin: 0 20px"
+      :path {is_mute ? "/home/ekoehler/Pictures/icons/mute.png" : "/home/ekoehler/Pictures/icons/sound.png"}
+    )
+    (label :text {is_mute ? "Muted" : "${sound}%"} :class "lp_date")
+  )
+)

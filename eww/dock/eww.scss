@@ -1,0 +1,22 @@
+.dock_container {
+  // background-color: #252d3b;
+  /* background-color: #C5CCDC; */
+  background-color: #000;
+  // background-color: $light;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.dock_app {
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dock_app:active {
+  background-color: $light;
+}
+
+.dock_line {
+  background-color: $light;
+}
