@@ -50,6 +50,10 @@
   `spotifycli --songshort`
 )
 
+(defpoll isSpotifyRunning :interval "5s"
+  `ps -aux | grep "spotify" -c`
+)
+
 ;;
 ;; Windows
 ;;
@@ -150,10 +154,12 @@
     ;; spotify
     (container
       (eventbox
-        :onclick "spotifycli --playpause &"
-        (label
-          :text {isPlaying}
-          :class "onSecondary"
+        :onclick {isSpotifyRunning > 1 ? "spotify &" : "echo 'Spotify already running'"}
+        (image
+          :image-width 20
+          :image-height 20
+          :path "/home/ekoehler/Pictures/icons/spotify.svg"
+          :style "margin: 0 8px"
         )
       )
       (eventbox

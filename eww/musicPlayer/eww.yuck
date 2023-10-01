@@ -6,7 +6,7 @@
 )
 
 (defpoll musicTitle :interval "5s"
-  `spotifycli --song`[]
+  `spotifycli --song`
 )
 
 (defpoll musicArtist :interval "5s"
@@ -78,7 +78,7 @@
 
           (eventbox :onclick "spotifycli --playpause &"
             (label
-              :text {isPlaying}
+              :text {isPlaying == "▶" ? "⏸︎" : "▶"}
               :class "onSecondary"
               :style "font-size: 40px;"
             )
