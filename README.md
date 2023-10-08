@@ -3,12 +3,12 @@ This is my 2023 dotfile repository, with a huge eww configuration and a hyprland
 
 # Pictures
 
-[My Desktop with a music player opened (is toggleable)](pictures/desktop.png)
+[My Desktop with a music player opened (is toggleable)](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/desktop.png)
 
-[My chrome browser with tabliss](pictures/screenshots/chrome.png)
+[My chrome browser with tabliss](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/chrome.png)
 
-[Working on a recat native project](pictures/screenshots/nvim.png)
+[Working on a recat native project](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/nvim.png)
 
-[My app launcher using Wofi](pictures/screenshots/wofi.png)
+[My app launcher using Wofi](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/wofi.png)
 
-[Neofetch](pictures/screenshots/desktop.png)
+[Neofetch](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/neofetch.png)
