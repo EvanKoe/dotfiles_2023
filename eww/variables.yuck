@@ -1,0 +1,111 @@
+;;
+;; At a glance
+;;
+
+(defpoll atAGlanceDate :interval "1h"
+  `date +'%a, %b %d'`
+)
+
+(defpoll catImage :interval "1m"
+  `cat config.js | jq --raw-output .atAGlance_image`
+)
+
+
+;;
+;; Bar
+;;
+
+(defvar radius 20)
+
+(defpoll bg_img :interval "50s"
+  `cat "./config.json" | jq --raw-output .wallpaper`
+)
+
+(defpoll date :interval "1s"
+  `date +'%a %d %b'`
+)
+
+(defpoll time :interval "1s"
+  `date +'%H:%M'`
+)
+
+(defpoll brightness :interval "1s"
+  `$HOME/.config/eww/script/brighness`
+)
+
+(defpoll active_window :interval "1s"
+  `$HOME/.config/eww/script/capitalize $(hyprctl activewindow -j | jq --raw-output .class)`
+)
+
+(defpoll active_workspace :interval "1s"
+  `hyprctl activeworkspace -j | jq --raw-output .id`
+)
+
+(defpoll sound :interval "1s"
+  `$HOME/.config/eww/script/sound.sh -p`
+)
+
+(defpoll is_mute :interval "1s"
+  `$HOME/.config/eww/script/sound.sh -m`
+)
+
+(defpoll battery :interval "10s"
+  `$HOME/.config/eww/script/bat.sh`
+)
+
+(defpoll isPlaying :interval "1s"
+  `spotifycli --playbackstatus`
+)
+
+(defpoll songName :interval "1s"
+  `spotifycli --songshort`
+)
+
+(defpoll isSpotifyRunning :interval "5s"
+  `ps -aux | grep "spotify" -c`
+)
+
+
+;;
+;; Dock
+;;
+
+(defvar isDockShown false)
+
+(defpoll _isDockShown :interval "200ms"
+  `eww get isDockShown`
+)
+
+
+;;
+;; Launchpad
+;;
+
+(defpoll full_date :interval "30s"
+  `date +'%A %d %b'`
+)
+
+(defpoll wifi :interval "30s"
+  `$HOME/.config/eww/script/wifi`
+)
+
+(defpoll bt_connected :interval "10s"
+  `$HOME/.config/eww/script/bluetooth.sh`
+)
+
+
+;;
+;; Music player
+;;
+
+(defpoll artUrl :interval "5s"
+  `spotifycli --arturl`
+)
+
+(defpoll musicTitle :interval "5s"
+  `spotifycli --song`
+)
+
+(defpoll musicArtist :interval "5s"
+  `spotifycli --artist`
+)

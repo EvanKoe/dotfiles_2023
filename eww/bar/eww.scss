@@ -1,4 +1,4 @@
-$light:  #AEC6FF;
+$light: #AEC6FF;
 $dark : #354055;
 
 .bar {
@@ -29,4 +29,12 @@ $dark : #354055;
   font-weight: bold;
   margin: 0 12px;
   transition: 0.2s all ease-in-out;
+}
+
+.bar--button {
+  transition: all 0.2s ease-in-out;
+}
+
+.bar--button:hover {
+  opacity: 0.6;
 }

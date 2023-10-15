@@ -1,19 +1,4 @@
 ;
-; variables
-;
-(defpoll full_date :interval "30s"
-  `date +'%A %d %b'`
-)
-
-(defpoll wifi :interval "30s"
-  `$HOME/.config/eww/script/wifi`
-)
-
-(defpoll bt_connected :interval "10s"
-  `$HOME/.config/eww/script/bluetooth.sh`
-)
-
-;
 ; Windows
 ;
 (defwindow launchpad

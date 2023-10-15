@@ -1,6 +1,6 @@
 .sm_main_container {
-  background-color: #252D3B;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
 }
 
 .sm_item {
@@ -9,15 +9,11 @@
 }
 
 .sm_item:hover {
-  background-color: $dark;
-}
-
-.sm_item:active {
-  background-color: $light;
+  opacity: 0.2;
 }
 
 .sm_item_text {
-  color: $light;
+  color: $textColor;
   font-size: 15px;
   font-weight: bold;
 }

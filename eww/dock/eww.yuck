@@ -1,6 +1,3 @@
-;; Variables
-(defvar isDockShown true)
-
 (defwindow dock
   :geometry (geometry
     :width 900
@@ -11,12 +8,12 @@
   :exclusive false
   :monitor 0
   :stacking "overlay"
-  ;; :namespace "gtk-layer-shell"
+  :namespace "gtk-layer-shell"
   :focusable false
   (revealer
     :transition "crossfade"
-    :duration "500ms"
-    :reveal {isDockShown}
+    :duration "200ms"
+    :reveal {_isDockShown}
     (box
       :class "dock_container"
       ;

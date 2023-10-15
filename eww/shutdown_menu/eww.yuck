@@ -8,9 +8,9 @@
 ;; https://wiki.archlinux.org/title/Power_management#Allow_users_to_shutdown
 ;;
 
-; variables
-
-; window
+;;
+;; Shutdown menu
+;;
 (defwindow shutdown_menu
   :monitor 0
   :stacking "fg"
@@ -41,7 +41,7 @@
   )
 )
 
-; widgets
+;; widgets
 (defwidget swidget [name image cmd]
   (eventbox
     :class "sm_item"
@@ -51,12 +51,11 @@
       :space-evenly false
       :style "padding: 20px 10px;"
       (image
-        :image-width 50
-        :image-height 50
+        :image-width 100
+        :image-height 100
         :path image
         :style "margin: 15px 10px;"
       )
-      (label :text name :class "sm_item_text")
     )
   )
 )

@@ -1,25 +1,11 @@
 ;;
-;; Variables
-;;
-(defpoll artUrl :interval "5s"
-  `spotifycli --arturl`
-)
-
-(defpoll musicTitle :interval "5s"
-  `spotifycli --song`
-)
-
-(defpoll musicArtist :interval "5s"
-  `spotifycli --artist`
-)
-
-;;
-;; Window
+;; Music player
 ;;
 (defwindow musicPlayer
   :monitor 0
   :stacking "fg"
   :focusable false
+  :namespace "gtk-layer-shell"
   :geometry (geometry
     :anchor "top right"
     :width "400px"
@@ -52,14 +38,14 @@
         ;; title
         (label
           :text {musicTitle}
-          :class "onSecondary"
+          :class "musicPlayer--text"
           :style "font-size: 20px;"
         )
 
         ;; artist
         (label
           :text {musicArtist}
-          :class "onSecondary"
+          :class "musicPlayer--text"
           :style "font-weight: normal;"
         )
 
@@ -71,7 +57,7 @@
           (eventbox :onclick "spotifycli --prev &"
             (label
               :text "⏮"
-              :class "onSecondary"
+              :class "musicPlayer--button"
               :style "font-size: 40px"
             )
           )
@@ -79,7 +65,7 @@
           (eventbox :onclick "spotifycli --playpause &"
             (label
               :text {isPlaying == "▶" ? "⏸︎" : "▶"}
-              :class "onSecondary"
+              :class "musicPlayer--button"
               :style "font-size: 40px;"
             )
           )
@@ -87,7 +73,7 @@
           (eventbox :onclick "spotifycli --next &"
             (label
               :text "⏭"
-              :class "onSecondary"
+              :class "musicPlayer--button"
               :style "font-size: 40px;"
             )
           )
