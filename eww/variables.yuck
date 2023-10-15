@@ -7,7 +7,7 @@
 )
 
 (defpoll catImage :interval "1m"
-  `cat config.js | jq --raw-output .atAGlance_image`
+  `cat config.json | jq --raw-output .atAGlance_image`
 )
 
 
