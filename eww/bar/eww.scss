@@ -38,3 +38,33 @@ $dark : #354055;
 .bar--button:hover {
   opacity: 0.6;
 }
+
+.opacityOnHover {
+  transition: all 0.2s ease-in-out;
+}
+
+.opacityOnHover:hover {
+  opacity: 0.6;
+}
+
+.opacityOnHover:active {
+  opacity: 0.4;
+}
+
+.spotifyContainer {
+  transition: 0.2s all ease-in-out;
+  border-radius: 50px;
+}
+
+.spotifyContainer:hover {
+  background-color: #1DB954;
+}
+
+.bluetoothContainer {
+  transition: 0.2s all ease-in-out;
+  border-radius: 50px;
+}
+
+.bluetoothContainer:hover {
+  background-color: #20A2EB;
+}

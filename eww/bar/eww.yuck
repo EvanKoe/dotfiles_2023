@@ -7,6 +7,7 @@
     :width "100%"
     :height "100%"
   )
+
   (overlay :vexpand true :hexpand true
     (image
       :path bg_img
@@ -59,6 +60,7 @@
     :width "100%"
     :height "40px"
   )
+
   (box
     :orientation "h"
     :space-evenly false
@@ -94,8 +96,13 @@
 
     ;; spotify
     (container
+      :eventClass "spotifyContainer"
+
       (eventbox
         :onclick {isSpotifyRunning > 1 ? "spotify &" : "echo 'Spotify already running'"}
+        ;; :class "spotifyContainer"
+        ;; :style "border-radius: 50px;"
+
         (image
           :image-width 20
           :image-height 20
@@ -104,11 +111,15 @@
           :class "bar--button"
         )
       )
+
       (eventbox
-        :onclick "eww open --toggle musicPlayer"
+        :onclick {songName == "" ? "spotify &" : "eww open --toggle musicPlayer"}
+        ;; :class "spotifyContainer"
+        ;; :style "border-radius: 50px;"
+
         (label
-          :text {songName}
-          :class "onSecondary"
+          :text {songName == "" ? "Spotify" : songName}
+          :class "onSecondary opacityOnHover"
           :style "margin-left: 2px"
         )
       )
@@ -116,6 +127,8 @@
 
     ;; bluetooth
     (container
+      :eventClass "bluetoothContainer"
+
       (eventbox
         :onclick "kitty -e bluetuith &"
         (image
@@ -189,23 +202,41 @@
         (label :text time :class "onPrimary")
       )
     )
+
+    ;; notifications
+    (eventbox
+      :onclick "eww open --toggle notificationWindow"
+      :class "opacityOnHover"
+
+      (light_container
+        (image
+          :path "/home/ekoehler/Pictures/icons/notif.png"
+          :image-width 20
+          :image-height 20
+          :class 'onSecondary'
+        )
+      )
+    )
   )
 )
 
 ;;
 ;; Widgets
 ;;
-(defwidget container [?onhover ?onhoverlost ?onclick ?onrightclick]
+(defwidget container [?onhover ?onhoverlost ?onclick ?onrightclick ?class ?eventClass]
   (eventbox
     :onhover onhover
     :onclick onclick
     :onrightclick onrightclick
     :onhoverlost onhoverlost
+    :class eventClass
+
     (box
       :orientation "h"
       :hexpand false
       :space-evenly false
-      :class "container"
+      :class {class + " container"}
+
       (children)
     )
   )

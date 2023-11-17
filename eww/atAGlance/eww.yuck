@@ -8,44 +8,56 @@
     :anchor "top left"
     :width 200
     :height 60
-    :y 100
-    :x 100
+    :y 80
+    :x 30
   )
 
   (box
     :orientation "v"
     :space-evenly false
 
-    (image
-      :path {catImage}
-      :image-width 70
-      :image-heigth 70
-    )
+    ;; Sleeping cat image
+    ;;
+    ;; (image
+    ;;   :path {catImage}
+    ;;   :image-width 70
+    ;;   :image-heigth 70
+    ;; )
+
     (box
       :orientation "h"
       :space-evenly false
       :height 50
       :style "
-        background: rgba(255, 255, 255, 0.8);
-        /* padding: 20px 12px; */
+        background-color: #F1F5F8;
         border-radius: 50px;
         margin-top: 0;
       "
 
-      (label
+      (eventbox
+        :onclick "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep"
         :hexpand true
-        :text {atAGlanceDate}
-        :style "color: #000"
+
+        (label
+          :text {atAGlanceDate}
+          :style "color: #000"
+        )
       )
+
       (box
         :style "
+          background: #354055;
           margin: 4px;
           padding: 0 10px;
-          background-color: #354055;
           border-radius: 50px;
         "
 
-        (label :text "3°C")
+        ;; (label :text "3°C")
+        (image
+          :path "/home/ekoehler/Pictures/icons/cloud_light.png"
+          :image-width 25
+          :image-heigth 25
+        )
       )
     )
   )

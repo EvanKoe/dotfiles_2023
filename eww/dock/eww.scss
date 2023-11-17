@@ -1,17 +1,17 @@
 .dock_container {
-  /* background: rgba(0, 0, 0, .2); */
-  background: rgba(255, 255, 255, .2);
-  border-radius: 20px;
+  background: rgba(150, 150, 150, .2);
+  /* background: rgba(255, 255, 255, .4); */
+  border-radius: 25px;
 }
 
 .dock_app {
   opacity: 1;
-  border-radius: 10px;
-  transition: all 0.2s ease-in-out;
+  border-radius: 25px;
+  transition: all 0.07s ease-in-out;
 }
 
 .dock_app:active {
-  background-color: $light;
+  background-color: rgba(174, 198, 255, 0.2);
 }
 
 .dock_app:hover {

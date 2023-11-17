@@ -7,62 +7,60 @@
   )
   :exclusive false
   :monitor 0
-  :stacking "overlay"
+  :stacking "fg"
   :namespace "gtk-layer-shell"
+  :exclusive true
   :focusable false
-  (revealer
-    :transition "crossfade"
-    :duration "200ms"
-    :reveal {_isDockShown}
-    (box
-      :class "dock_container"
-      ;
-      ; Quick start apps
-      ;
-      (app
-        :path "/home/ekoehler/Pictures/icons/Terminal.png"
-        :cmd "cd $HOME && kitty -e tmux &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Chrome.png"
-        :cmd "google-chrome-stable &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Explorer.png"
-        :cmd "nemo &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Discord.png"
-        :cmd "discord &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Ferdium.png"
-        :cmd "ferdium &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Spotify.png"
-        :cmd "spotify &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/parsec_macos.png"
-        :cmd "parsecd &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/wpsOffice.png"
-        :cmd "wps &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Zoom.png"
-        :cmd "zoom &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Launchpad.png"
-        :cmd "wofi -s $HOME/.config/wofi/style.css --allow-images -w 2 --hide_scroll --show drun &"
-      )
-      (app
-        :path "/home/ekoehler/Pictures/icons/Shutdown.png"
-        :cmd "eww open --toggle shutdown_menu"
-      )
+
+  (box
+    :class "dock_container"
+
+    ;;
+    ;; Quick start apps
+    ;;
+    (app
+      :path "/home/ekoehler/Pictures/icons/Terminal.png"
+      :cmd "cd $HOME && kitty -e tmux &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Chrome.png"
+      :cmd "google-chrome-stable &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Explorer.png"
+      :cmd "nemo &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Discord.png"
+      :cmd "webcord &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Ferdium.png"
+      :cmd "ferdium &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Spotify.png"
+      :cmd "spotify &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/parsec_macos.png"
+      :cmd "parsecd &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/wpsOffice.png"
+      :cmd "wps &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/GoogleCalendar.png"
+      :cmd "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Launchpad.png"
+      :cmd "wofi -s $HOME/.config/wofi/style.css --allow-images -w 2 --hide_scroll --show drun &"
+    )
+    (app
+      :path "/home/ekoehler/Pictures/icons/Shutdown.png"
+      :cmd "eww open --toggle shutdown_menu"
     )
   )
 )
