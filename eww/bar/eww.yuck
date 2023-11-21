@@ -95,42 +95,41 @@
   (box :space-evenly false
 
     ;; spotify
-    (container
-      :eventClass "spotifyContainer"
+    (box
+      :style "margin: 3px"
 
       (eventbox
-        :onclick {isSpotifyRunning > 1 ? "spotify &" : "echo 'Spotify already running'"}
-        ;; :class "spotifyContainer"
-        ;; :style "border-radius: 50px;"
-
-        (image
-          :image-width 20
-          :image-height 20
-          :path "/home/ekoehler/Pictures/icons/spotify.svg"
-          :style "margin: 0 8px"
-          :class "bar--button"
-        )
-      )
-
-      (eventbox
+        :class "spotifyContainer"
+        :onrightclick {isSpotifyRunning > 1 ? "spotify &" : "echo 'Spotify already running'"}
         :onclick {songName == "" ? "spotify &" : "eww open --toggle musicPlayer"}
-        ;; :class "spotifyContainer"
-        ;; :style "border-radius: 50px;"
 
-        (label
-          :text {songName == "" ? "Spotify" : songName}
-          :class "onSecondary opacityOnHover"
-          :style "margin-left: 2px"
+        (box
+          :space-evenly false
+
+          (image
+            :image-width 20
+            :image-height 20
+            :path "/home/ekoehler/Pictures/icons/spotify.svg"
+            :style "margin: 0 8px;"
+          )
+
+          (label
+            :text {songName == "" ? "Spotify" : songName}
+            :class "onSecondary"
+            :style "margin-left: 2px"
+          )
         )
       )
     )
 
     ;; bluetooth
-    (container
-      :eventClass "bluetoothContainer"
-
+    (box
+      :style "margin: 3px"
       (eventbox
+        :height 20
+        :class "bluetoothContainer"
         :onclick "kitty -e bluetuith &"
+
         (image
           :path "/home/ekoehler/Pictures/icons/bluetooth.png"
           :image-width 20
@@ -138,8 +137,17 @@
           :style "margin: 0 8px;"
         )
       )
+    )
+
+
+    ;; wifi
+    (box
+      :style "margin: 3px"
+
       (eventbox
         :onclick "kitty -e iwctl &"
+        :class "wifiContainer"
+
         (image
           :image-height 20
           :image-width 20
@@ -167,6 +175,7 @@
 
     ;; sound
     (container
+      :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
       (label
         :text {is_mute == "true" ? "Muted" : "${sound}%"}
         :class "onSecondary"

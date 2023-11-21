@@ -8,6 +8,7 @@ $dark : #354055;
 .container {
   background-color: $dark;
   border-radius: 50px;
+  transition: all 0.2s ease-in-out;
   margin: 3px;
 }
 
@@ -52,19 +53,33 @@ $dark : #354055;
 }
 
 .spotifyContainer {
-  transition: 0.2s all ease-in-out;
   border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+  background-color: $dark;
 }
 
 .spotifyContainer:hover {
-  background-color: #1DB954;
+  /* background-color: #1DB954; */
+  /* background-color: #0D3D0A; */
+  background-color: #165109;
 }
 
 .bluetoothContainer {
-  transition: 0.2s all ease-in-out;
   border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+  background-color: $dark;
 }
 
 .bluetoothContainer:hover {
-  background-color: #20A2EB;
+  background-color: #0D4398;
+}
+
+.wifiContainer {
+  border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+  background-color: $dark;
+}
+
+.wifiContainer:hover {
+  background-color: #5A1717;
 }
