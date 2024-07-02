@@ -1,51 +1,12 @@
 (defwindow corners
   :monitor 0
-  :stacking "bt"
+  :stacking "bg"
+  :exclusive true
   :focusable false
   :geometry (geometry
     :anchor "top left"
     :width "100%"
-    :height "100%"
-  )
-
-  (overlay :vexpand true :hexpand true
-    (image
-      :path bg_img
-      :image-width 1920
-      :image-height 1080
-      :vexpand true
-      :hexpand true
-    )
-    (image
-      :path "/home/ekoehler/Pictures/icons/antiborder.svg"
-      :image-width radius
-      :image-height radius
-      :halign "start"
-      :valign "start"
-      :style "margin-top: 40px"
-    )
-    (image
-      :path "/home/ekoehler/Pictures/icons/antiborder_right.svg"
-      :image-width radius
-      :image-height radius
-      :halign "end"
-      :valign "start"
-      :style "margin-top: 40px"
-    )
-    (image
-      :path "/home/ekoehler/Pictures/icons/antiborder_bl.svg"
-      :image-width radius
-      :image-height radius
-      :halign "start"
-      :valign "end"
-    )
-    (image
-      :path "/home/ekoehler/Pictures/icons/antiborder_br.svg"
-      :image-width radius
-      :image-height radius
-      :halign "end"
-      :valign "end"
-    )
+    :height "40px"
   )
 )
 
@@ -63,6 +24,7 @@
 
   (box
     :orientation "h"
+    :style "background-color: ${backgroundColor}"
     :space-evenly false
     (left)
     (middle)
@@ -75,12 +37,17 @@
 ;;
 (defwidget left []
   (box :space-evenly false
-    (container :style "padding: 0 24px"
-      (light_container
-        :style "padding: 0 14px; margin: 0;"
-        (label :text active_workspace :class "onPrimary" :style "margin: 0")
+    (eventbox
+      :onclick "hyprctl dispatch workspace -1"
+      :onrightclick "hyprctl dispatch workspace +1"
+
+      (container :style "padding: 0 24px"
+        (light_container
+          :style "padding: 0 14px; margin: 0;"
+          (label :text active_workspace :class "onPrimary" :style "margin: 0")
+        )
+        (label :text {active_window != "Null" ? active_window : "Desktop"} :class "onSecondary")
       )
-      (label :text {active_window != "Null" ? active_window : "Desktop"} :class "onSecondary")
     )
   )
 )
@@ -213,19 +180,19 @@
     )
 
     ;; notifications
-    (eventbox
-      :onclick "eww open --toggle notificationWindow"
-      :class "opacityOnHover"
-
-      (light_container
-        (image
-          :path "/home/ekoehler/Pictures/icons/notif.png"
-          :image-width 20
-          :image-height 20
-          :class 'onSecondary'
-        )
-      )
-    )
+    ;; (eventbox
+    ;;   :onclick "eww open --toggle notificationWindow"
+    ;;   :class "opacityOnHover"
+    ;;
+    ;;   (light_container
+    ;;     (image
+    ;;       :path "/home/ekoehler/Pictures/icons/notif.png"
+    ;;       :image-width 20
+    ;;       :image-height 20
+    ;;       :class 'onSecondary'
+    ;;     )
+    ;;   )
+    ;; )
   )
 )
 

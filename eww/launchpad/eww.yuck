@@ -85,8 +85,8 @@
       :onclick "sudo systemctl poweroff"
       (image
         ;image-width 50
-        :image-height 50
-        :path "/home/ekoehler/Pictures/icons/shutdown.png"
+        :image-height 70
+        :path "/home/ekoehler/Pictures/icons/poweroff.png"
       )
     )
     (eventbox
@@ -94,7 +94,7 @@
       :onclick "sudo systemctl restart"
       (image
         ;image-width 50
-        :image-height 50
+        :image-height 70
         :path "/home/ekoehler/Pictures/icons/reboot.png"
       )
     )
@@ -103,8 +103,8 @@
       :onclick "hyprctl dispatch exit"
       (image
         ;image-width 50
-        :image-height 50
-        :path "/home/ekoehler/Pictures/icons/logout.png"
+        :image-height 70
+        :path "/home/ekoehler/Pictures/icons/sleep.png"
       )
     )
   )
@@ -117,25 +117,33 @@
     :class "launchpad_container"
     (eventbox
       :onclick "$HOME/.config/eww/script/launchpad.sh && steam &"
+      :class "launchpad_shutdownmenu_item"
+
       (image
-        :image-width 50
-        :image-height 50
+        :class "launchpad_shutdownmenu_item"
+        :image-width 70
+        :image-height 70
         :path "/home/ekoehler/Pictures/icons/steam.png"
       )
     )
     (eventbox
       :onclick "$HOME/.config/eww/script/launchpad.sh && steam steam://rungameid/2357570 &"
+      :class "launchpad_shutdownmenu_item"
+
       (image
-        :image-width 50
-        :image-height 50
+        :class "launchpad_shutdownmenu_item"
+        :image-width 70
+        :image-height 70
         :path "/home/ekoehler/Pictures/icons/overwatch2.png"
       )
     )
     (eventbox
       :onclick "$HOME/.config/eww/script/launchpad.sh && minecraft-launcher &"
+      :class "launchpad_shutdownmenu_item"
+
       (image
-        :image-width 50
-        :image-height 50
+        :image-width 70
+        :image-height 70
         :path "/home/ekoehler/Pictures/icons/minecraft.png"
       )
     )

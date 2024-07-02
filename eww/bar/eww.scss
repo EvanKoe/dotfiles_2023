@@ -1,8 +1,11 @@
-$light: #AEC6FF;
+/* $light: #AEC6FF; */
 $dark : #354055;
+$light: rgba(255, 255, 255, 0.8);
+/* $dark: rgba(0, 0, 0, 0.5); */
+/* $dark: #222436 */
 
 .bar {
-  background-color: #000;
+  font-family: 'San Fransisco'
 }
 
 .container {
@@ -59,9 +62,8 @@ $dark : #354055;
 }
 
 .spotifyContainer:hover {
-  /* background-color: #1DB954; */
-  /* background-color: #0D3D0A; */
-  background-color: #165109;
+  /* background-color: #165109; */
+  background-color: #589C70;
 }
 
 .bluetoothContainer {

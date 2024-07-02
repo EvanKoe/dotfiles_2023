@@ -25,7 +25,7 @@
     :orientation "h"
     (swidget
       :name "Power off"
-      :image "/home/ekoehler/Pictures/icons/shutdown.png"
+      :image "/home/ekoehler/Pictures/icons/poweroff.png"
       :cmd "sudo systemctl poweroff"
     )
     (swidget
@@ -35,7 +35,7 @@
     )
     (swidget
       :name "Log out"
-      :image "/home/ekoehler/Pictures/icons/logout.png"
+      :image "/home/ekoehler/Pictures/icons/sleep.png"
       :cmd "hyprctl dispatch exit"
     )
   )

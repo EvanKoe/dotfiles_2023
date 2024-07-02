@@ -17,6 +17,8 @@
 
 (defvar radius 20)
 
+(defvar backgroundColor "rgba(0, 0, 0, 0.3)")
+
 (defpoll bg_img :interval "50s"
   `cat "./config.json" | jq --raw-output .wallpaper`
 )

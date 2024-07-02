@@ -31,6 +31,10 @@
   transition: all 0.1s ease-in-out;
 }
 
+.launchpad_shutdownmenu_item:hover {
+  opacity: 0.8;
+}
+
 .launchpad_shutdownmenu_item:active {
   background-color: $light;
 }
