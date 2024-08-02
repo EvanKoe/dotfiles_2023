@@ -21,7 +21,7 @@
     ;; (image
     ;;   :path {catImage}
     ;;   :image-width 70
-    ;;   :image-heigth 70
+    ;;   :image-height 70
     ;; )
 
     (box
@@ -56,7 +56,7 @@
         (image
           :path "/home/ekoehler/Pictures/icons/cloud_light.png"
           :image-width 25
-          :image-heigth 25
+          :image-height 25
         )
       )
     )

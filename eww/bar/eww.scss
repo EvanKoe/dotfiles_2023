@@ -1,18 +1,28 @@
-/* $light: #AEC6FF; */
 $dark : #354055;
-$light: rgba(255, 255, 255, 0.8);
-/* $dark: rgba(0, 0, 0, 0.5); */
-/* $dark: #222436 */
+$light: #AEC6FF;
 
 .bar {
-  font-family: 'San Fransisco'
+  font-family: 'San Fransisco';
+  transition: all 0.2s ease-in-out;
 }
 
 .container {
   background-color: $dark;
+  border: solid 2px $light;
   border-radius: 50px;
   transition: all 0.2s ease-in-out;
   margin: 3px;
+}
+
+.closeButton {
+  border-radius: 50px;
+  background-color: #900;
+}
+
+.notch {
+  background-color: #000;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .lcontainer {

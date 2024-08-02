@@ -1,3 +1,4 @@
+(include "./corners/eww.yuck")
 (include "./variables.yuck")
 (include "./bar/eww.yuck")
 (include "./dock/eww.yuck")

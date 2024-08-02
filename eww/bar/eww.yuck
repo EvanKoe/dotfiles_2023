@@ -1,12 +1,23 @@
-(defwindow corners
+(defwindow notch
   :monitor 0
-  :stacking "bg"
-  :exclusive true
+  :stacking "overlay"
+  :exclusive false
   :focusable false
   :geometry (geometry
-    :anchor "top left"
-    :width "100%"
-    :height "40px"
+    :anchor "top center"
+    :width 200
+    :height 30
+    :x 860
+    :y 0
+  )
+
+  (box
+    :class "notch"
+
+    (label
+      :text {active_window != "Null" ? active_window : "Desktop"}
+      :class "onSecondary"
+    )
   )
 )
 
@@ -20,6 +31,7 @@
     :anchor "top left"
     :width "100%"
     :height "40px"
+    :y 0
   )
 
   (box
@@ -36,26 +48,63 @@
 ;; Containers
 ;;
 (defwidget left []
-  (box :space-evenly false
+  (box
+    :space-evenly false
+
+    (box
+      :class "container"
+      :space-evenly true
+      :style "padding: 5px"
+
+      ;; Close window
+      (eventbox
+        :onclick "hyprctl dispatch killactive"
+        :class "closeButton"
+        :width 20
+      )
+
+      ;; Maximize window
+      (eventbox
+        :onclick "$HOME/.config/hypr/triggerFullscreen.sh"
+        :class "closeButton"
+        :style "background-color: #090"
+        :hexpand false
+        :width 20
+      )
+
+      ;; Float window
+      (eventbox
+        :onclick "hyprctl dispatch togglefloating"
+        :class "closeButton"
+        :style "background-color: #C8AF14"
+        :width 20
+      )
+    )
+
     (eventbox
       :onclick "hyprctl dispatch workspace -1"
       :onrightclick "hyprctl dispatch workspace +1"
 
-      (container :style "padding: 0 24px"
-        (light_container
-          :style "padding: 0 14px; margin: 0;"
-          (label :text active_workspace :class "onPrimary" :style "margin: 0")
+      (container
+        :style "padding: 0 24px; margin: 0;"
+
+        (box
+          :class "container"
+          :style "padding: 0 14px; margin: 0; border: none;"
+
+          (label
+            :text active_workspace
+            :class "onSecondary"
+            :style "margin: 0"
+          )
         )
-        (label :text {active_window != "Null" ? active_window : "Desktop"} :class "onSecondary")
       )
     )
   )
 )
 
 (defwidget middle []
-  (box
-    :hexpand true
-  )
+  (box :hexpand true)
 )
 
 (defwidget right []
