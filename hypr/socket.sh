@@ -2,7 +2,7 @@
 
 handle() {
   case $1 in
-    workspace*) sleep 0.4 && $HOME/.config/hypr/colorBar.sh;;
+    # workspace*) sleep 0.4 && $HOME/.config/hypr/colorBar.sh;;
   esac
 }
 

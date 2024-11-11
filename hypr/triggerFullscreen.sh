@@ -40,4 +40,4 @@ fi
 
 
 # Change the bar color
-$HOME/.config/hypr/colorBar.sh
+# $HOME/.config/hypr/colorBar.sh
