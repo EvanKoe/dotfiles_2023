@@ -1,5 +1,4 @@
 .container {
-  background-color: rgba(0, 0, 0, 1);
 }
 
 .mainBox {
@@ -15,4 +14,13 @@
   font-weight: bold;
   font-size: 15px;
   font-family: 'San Fransisco';
+}
+
+.volumeWindow {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.volumeIcon {
+  color: #ddd;
 }

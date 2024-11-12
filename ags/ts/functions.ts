@@ -16,6 +16,21 @@ const doNotGoFurther = (
 }
 
 
+const onOneToPercent = (
+  num: number,
+  canGoOver: boolean = false
+): string => {
+  let new_num: number = num;
+
+  if (num >= 1 && !canGoOver) {
+    new_num = 1;
+  }
+
+  return `${(new_num * 100).toFixed(0)} %`;
+}
+
+
 export {
-  doNotGoFurther
+  doNotGoFurther,
+  onOneToPercent
 };
