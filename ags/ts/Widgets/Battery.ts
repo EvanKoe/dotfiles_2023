@@ -9,9 +9,9 @@ const _battery: Battery = await Service.import('battery');
 
 const getBatteryIcon = (): string => {
   if (!!_battery.charging) {
-    return `${config.home}/Pictures/icons/charging.png`;
+    return `${config.home}/Pictures/icons/battery_macos_charging.png`;
   }
-  return `${config.home}/Pictures/icons/battery.png`;
+  return `${config.home}/Pictures/icons/battery_macos.png`;
 }
 
 
@@ -25,7 +25,7 @@ const WidgetBattery = () => Widget.Box({
     }),
     Widget.Icon({
       icon: getBatteryIcon(),
-      size: 24,
+      size: 36,
       marginRight: 24
     })
   ]

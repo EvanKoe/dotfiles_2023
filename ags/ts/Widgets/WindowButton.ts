@@ -11,7 +11,7 @@ const WindowButton = (
     onHover: () => { isHovered.setValue(true) },
     onHoverLost: () => { isHovered.setValue(false) },
     marginRight: 4,
-    widthRequest: 22,
+    widthRequest: 20,
     child: Widget.Box({
       className: 'windowButton',
       css: `background-color: ${color}`,
@@ -21,7 +21,7 @@ const WindowButton = (
           transition: 'crossfade',
           child: Widget.Icon({
             icon: name,
-            size: 16,
+            size: 18,
             marginRight: 3,
             marginLeft: 3,
           })

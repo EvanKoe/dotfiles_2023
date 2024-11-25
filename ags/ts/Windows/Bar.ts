@@ -5,6 +5,7 @@ import WindowButton from '../Widgets/WindowButton';
 import DesktopName from '../Widgets/DesktopName';
 import Config from '../config';
 import { Battery } from 'types/service/battery';
+import BrightnessBar from 'ts/Widgets/BrightnessBar';
 
 
 const isMaximized = Variable<boolean>(false);
@@ -25,7 +26,7 @@ const getBgColor = () => {
     return 'rgba(255, 0, 0, 0.8)';
   }
   // Pick app color
-  return 'rgba(0, 0, 0, 0.6)';
+  return 'rgba(0, 0, 0, 0.4)';
 }
 
 
@@ -33,6 +34,7 @@ const getBgColor = () => {
 const Right = () => Widget.Box({
   hpack: "end",
   children: [
+    BrightnessBar(),
     SoundBar(),
     WidgetBattery(),
     DispDateTime()
@@ -68,7 +70,7 @@ const Bar = (monitor = 0) => Widget.Window({
   name: `bar-${monitor}`,
   heightRequest: 30,
   css: `background-color: ${getBgColor()}`,
-  anchor: ['bottom', 'left', 'right'],
+  anchor: ['top', 'left', 'right'],
   child: Widget.CenterBox({
     className: 'mainBox',
     vertical: false,

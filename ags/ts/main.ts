@@ -1,14 +1,16 @@
+import globals from './globals';
 import Bar from './Windows/Bar';
-import Volume from './Windows/Sound.ts';
+
 
 App.addIcons(`${App.configDir}/assets`);
 
+
 App.config({
   style: './style.scss',
-  windows: [
+  windows: globals.getMonitorNumber() === 2 ? [
     Bar(1),
+    Bar(0)
+  ] : [
+    Bar(0)
   ]
 });
-
-//TODO Find a way to call Bar(1) if monitor 1 exists
-//TODO Find a way to blur the bar
