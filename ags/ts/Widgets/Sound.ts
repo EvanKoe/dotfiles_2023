@@ -1,4 +1,4 @@
-import config from "ts/config";
+import config from "config.json";
 import { doNotGoFurther, onOneToPercent } from "ts/functions";
 import { Audio } from "types/service/audio";
 
@@ -13,9 +13,9 @@ const isSoundShown = Variable<boolean>(false);
 
 const getSoundIcon = (): string => {
   if (_sound.speaker.is_muted) {
-    return `${config.home}/Pictures/icons/mute.png`;
+    return `${config.picturePath}/mute.png`;
   }
-  return `${config.home}/Pictures/icons/sound.png`;
+  return `${config.picturePath}/sound.png`;
 }
 
 

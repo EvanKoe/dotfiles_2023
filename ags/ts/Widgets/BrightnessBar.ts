@@ -1,4 +1,4 @@
-import config from 'ts/config';
+import config from 'config.json';
 import _brightness from '../Services/Brightness';
 import globals from 'ts/globals';
 
@@ -12,7 +12,7 @@ const BrightnessBar = () => Widget.Box({
       className: 'desktopText'
     }),
     Widget.Icon({
-      icon: `${config.home}/Pictures/icons/brightness_macos.png`,
+      icon: `${config.picturePath}/brightness_macos.png`,
       size: 24,
       marginRight: 24
     })

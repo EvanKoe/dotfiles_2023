@@ -3,7 +3,7 @@ import WidgetBattery from '../Widgets/Battery';
 import DispDateTime from '../Widgets/DateTime';
 import WindowButton from '../Widgets/WindowButton';
 import DesktopName from '../Widgets/DesktopName';
-import Config from '../config';
+import Config from 'config.json';
 import { Battery } from 'types/service/battery';
 import BrightnessBar from 'ts/Widgets/BrightnessBar';
 
@@ -62,9 +62,8 @@ const Left = () => {
 
 
 // The bar in itself
-const Bar = (monitor = 0) => Widget.Window({
+const Bar = (monitor: number = 0) => Widget.Window({
   monitor,
-  className: 'container',
   exclusivity: 'exclusive',
   layer: 'top',
   name: `bar-${monitor}`,

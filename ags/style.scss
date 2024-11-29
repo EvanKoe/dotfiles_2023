@@ -1,6 +1,3 @@
-.container {
-}
-
 .mainBox {
   padding: 12px;
 }
@@ -23,4 +20,18 @@
 
 .volumeIcon {
   color: #ddd;
+}
+
+/* Dock */
+.dockContainer {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+}
+
+.dockAppEventbox {
+  transition: all 0.2s ease-in-out;
+}
+
+.dockAppEventbox:hover {
+  opacity: 0.6;
 }

@@ -1,6 +1,6 @@
 import { doNotGoFurther } from "ts/functions";
 import { Battery } from "types/service/battery";
-import config from "ts/config";
+import config from "config.json";
 
 
 // Service
@@ -9,9 +9,9 @@ const _battery: Battery = await Service.import('battery');
 
 const getBatteryIcon = (): string => {
   if (!!_battery.charging) {
-    return `${config.home}/Pictures/icons/battery_macos_charging.png`;
+    return `${config.picturePath}/battery_macos_charging.png`;
   }
-  return `${config.home}/Pictures/icons/battery_macos.png`;
+  return `${config.picturePath}/battery_macos.png`;
 }
 
 

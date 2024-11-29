@@ -1,0 +1,31 @@
+{
+    "dock_app": [
+        {
+            "name": "Launchpad",
+            "image": "Launchpad.png",
+            "command": "wofi -s \"$HOME/.config/wofi/style.css\" --allow-images -w 2 --hide_scroll --show drun"
+        },
+        {
+            "name": "Terminal",
+            "image": "Terminal.png",
+            "command": "cd $HOME && kitty -e tmux"
+        },
+        {
+            "name": "Internet",
+            "image": "Chrome.png",
+            "command": "vivaldi"
+        },
+        {
+            "name": "Fichiers",
+            "image": "Explorer.png",
+            "command": "nautilus --new-window"
+        },
+        {
+            "name": "Shutdown menu",
+            "image": "Shutdown.png",
+            "command": "eww open --toggle shutdown_menu"
+        }
+    ],
+    "home": "/home/ekoehler",
+    "picturePath": "/home/ekoehler/Pictures/icons"
+}
