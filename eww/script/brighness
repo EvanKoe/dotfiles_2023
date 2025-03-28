@@ -1,8 +1,0 @@
-#!/bin/python3
-
-import os
-
-brightness = os.popen('brightnessctl get').read()
-percent = int(brightness) / 255 * 100
-print(int(percent))
-exit(0)

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-BG_COLOR="rgba(0, 0, 0, 0.1)"
+BG_COLOR="rgb(0, 0, 0)"
 
 MONITORS=$(hyprctl monitors -j | jq length)
 
@@ -16,7 +16,8 @@ if [ "$($HOME/.config/hypr/isMaximized.sh)" = "1" ]; then
     BG_COLOR=`grim -g "${X},45 1x1" -t ppm - | magick - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4`
 fi
 
-BGCOLOR_OUTPUT=`eww update backgroundColor="${BG_COLOR}"`
-if [ ${?} -ne 0 ]; then
-    echo "setting bg_color failed: ${BGCOLOR_OUTPUT}"
-fi
+echo "${BG_COLOR}"
+# BGCOLOR_OUTPUT=`eww update backgroundColor="${BG_COLOR}"`
+# if [ ${?} -ne 0 ]; then
+#     echo "setting bg_color failed: ${BGCOLOR_OUTPUT}"
+# fi
