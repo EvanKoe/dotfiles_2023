@@ -20,12 +20,34 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- import your plugins
-    { import = "ekoehler.plugins" },
+		import = "ekoehler.plugins"
   },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "onenord" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  install = {
+		colorscheme = { "onenord" }
+	},
+  checker = {
+		enabled = true,
+		notify = false
+	},
+	ui = {
+    icons = {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
+  },
+	change_detection = {
+		enable = true,
+		notify = false
+	}
 })

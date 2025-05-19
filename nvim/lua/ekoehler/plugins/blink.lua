@@ -14,7 +14,7 @@ return {
                 visible = true,
                 blocked = {
                     buftypes = {},
-                    filetypes = {'mason', 'lazy', 'blink-tree'},
+                    filetypes = {'mason', 'lazy', 'blink-tree', 'dashboard'},
                 },
                 static = {
                     enabled = true,

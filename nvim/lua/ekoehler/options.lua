@@ -2,12 +2,16 @@ local options = {
 	shiftwidth = 2,
 	tabstop = 2,
 	mouse = 'a',
-	number = true
+	number = true,
 }
 
 for i, j in pairs(options) do
 	vim.opt[i] = j
 end
+
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.diagnostic.config({
 	virtual_text = true,
