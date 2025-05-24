@@ -7,7 +7,7 @@ return {
         installs.update({ with_sync = true })
 
         configs.setup({
-            ensure_installed = { "vue", "typescript", "tsx", "javascript" },
+            ensure_installed = { "vue", "comment", "typescript", "tsx", "javascript" },
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = false },

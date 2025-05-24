@@ -12,6 +12,13 @@ vim.api.nvim_create_autocmd({'BufWrite'}, {
 	end
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+	callback = function ()
+		vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+	end
+})
+
 -- Prevent auto-opening files like netrw when starting in a directory
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()

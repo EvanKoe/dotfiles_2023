@@ -4,8 +4,8 @@ return {
         lazy = false,
         keys = {
             -- tree
-            { '<C-n>', '<cmd>BlinkTree toggle<cr>', desc = 'Reveal current file in tree' },
-            { '<leader>N', '<cmd>BlinkTree toggle-focus<cr>', desc = 'Toggle file tree focus' },
+            { '<C-n>', '<cmd>BlinkTree toggle<cr>', desc = 'Toggle tree' },
+            { '<leader>n', '<cmd>BlinkTree reveal<cr>', desc = 'Reveal current file in tree' },
         },
         opts = {
             tree = { enabled = true },
@@ -56,7 +56,6 @@ return {
     {
         'saghen/blink.pairs',
         version = '*',
-
         dependencies = 'saghen/blink.download',
         --- @module 'blink.pairs'
         --- @type blink.pairs.Config
@@ -83,7 +82,7 @@ return {
 
     {
         'saghen/blink.cmp',
-        dependencies = { 'neovim/nvim-lspconfig' },
+				version = '1.*',
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
