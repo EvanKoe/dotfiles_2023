@@ -9,7 +9,7 @@ export default function Shutdown() {
     <eventbox onClick={shutdown}>
       <label
         className="Shutdown"
-        marginLeft={12}
+        css="margin-left: 12px"
       >
         ⏻
       </label>

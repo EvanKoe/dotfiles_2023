@@ -2,21 +2,26 @@ import { bind } from "astal";
 import Wp from "gi://AstalWp"
 
 export default function SoundWidget() {
-  const speaker = Wp.get_default()?.audio.defaultSpeaker!;
+  const speaker = Wp.get_default()?.audio?.default_speaker;
 
-  return (
+  const formatSound = (v: number): string => {
+    if (v <= 0 || speaker?.mute) {
+      return "Muted";
+    }
+
+    return `${Math.floor(v * 100)} %`;
+  }
+
+  return !!speaker && (
     <box
       className="Battery"
-      marginRight={12}
+      css="margin-right: 24px"
     >
-      <icon
-        icon={bind(speaker, "volumeIcon")}
-        marginRight={8}
-      />
-
+      <icon icon={bind(speaker, "volumeIcon")} />
       <label
-        label={bind(speaker, "volume").as(v => v === 0 ? "Muted" : `${Math.floor(v * 100)}%`)}
+        label={bind(speaker, "volume").as(formatSound)}
+        css="margin-left: 8px"
       />
     </box>
-  )
+  );
 }

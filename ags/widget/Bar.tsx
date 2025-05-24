@@ -4,6 +4,7 @@ import { Desktops } from "./Bar/Desktops";
 import Hour from "./Bar/Hour";
 import BatteryWidget from "./Bar/Battery";
 import Shutdown from "./Bar/Shutdown";
+import BrightWidget from "./Bar/Bright";
 import SoundWidget from "./Bar/Sound";
 
 
@@ -31,6 +32,8 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           halign={Gtk.Align.END}
           className="RightContainer"
         >
+          <SoundWidget />
+          <BrightWidget />
           <BatteryWidget />
           <Hour />
         </box>

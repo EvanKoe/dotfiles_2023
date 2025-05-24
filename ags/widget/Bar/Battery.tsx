@@ -8,11 +8,11 @@ export default function BatteryWidget() {
     <box
       className="Battery"
       visible={bind(bat, "isPresent")}
-      marginRight={12}
+      css="margin-right: 24px"
     >
       <icon
         icon={bind(bat, "batteryIconName")}
-        marginRight={8}
+        css="margin-right: 8px"
       />
       <label label={bind(bat, "percentage").as(p =>
         `${Math.floor(p * 100)} %`

@@ -1,12 +1,23 @@
 // $fg-color: #{"#AEC6FF"};
 // $bg-color: #{"#2E3440"};
+/*
 $primary-color: #{"#864D64"};
 $secondary-color: #{"#E0BECB"};
 $bg-color: #{"#F0DFE2"};
+*/
+$bg-color: #{"#FFF2E6"};
+$secondary-color: #{"#F1CBB3"};
+$primary-color: #{"#96502D"};
 
+$on-secondary: #{"#96502D"};
+$on-bg: #{"#96502D"};
+$on-primary: #{"#FFF2E6"};
+
+/*
 $on-secondary: #{"#864D64"};
 $on-bg: #{"#864D64"};
 $on-primary: #{"#F0DFE2"};
+*/
 
 window.Bar {
   font-weight: bold;
@@ -34,6 +45,7 @@ window.Bar {
     button {
       background-color: $secondary-color;
       color: $on-secondary;
+      border: none;
     }
   }
 
@@ -41,8 +53,11 @@ window.Bar {
     .Hour {
       background-color: $secondary-color;
       border-radius: 50px;
-      padding-left: 12px;
-      padding-right: 12px;
+      padding-left: 16px;
+      padding-right: 16px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      margin-right: 4px;
 
       label {
         color: $on-secondary;
