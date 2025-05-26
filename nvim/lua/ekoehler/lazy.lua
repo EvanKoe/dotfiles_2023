@@ -57,7 +57,7 @@ require('lspconfig').volar.setup({
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     init_options = {
         typescript = {
-            tsdk = vim.fn.expand('/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib')
+						tsdk = vim.fn.expand('$HOME/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib')
         },
     },
 })
