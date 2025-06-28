@@ -1,31 +1,18 @@
-# dotfiles_eww
-This is my 2023 dotfile repository, with a huge eww configuration and a hyprland WM.
+# My 2023-2025 dotfiles
 
 # Pictures
 
-![Neofetch and *nixporn](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/neofetch.jpg)
-Neofetch and *nixporn  
-  
-  
-![Nvim in maximized mode](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/nvim.jpg)
-Nvim in maximized mode  
-  
-  
-![*nixporn on maximized Chrome](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/screenshots/unixporn.jpg)
-*Nixporn on maximized Google Chrome  
-  
-  
-![Eww bar that adapts its background color on maximize](https://github.com/EvanKoe/dotfiles_2023/assets/72010109/d1a5cd3e-379e-4ea2-ae36-60023efe7347)
-The bar (made with Eww) adapts its background color to the maximized window.
+![Screenshot](https://github.com/user-attachments/assets/ccbe8d1c-dd5a-4c59-a5ec-ff8217f06b38)
+
+![image](https://github.com/user-attachments/assets/cc6b48b8-7a9b-4029-aa91-a70564c4c405)
 
 
 # Details
 
 OS: Arch Linux  
 WM: Hyprland (wayland)  
-Editor: NeoVim ([from this config](https://github.com/kawaegle/dotfile))  
-Bar: [eww](https://github.com/elkowar/eww)  
-wallpaper: [this image](https://github.com/EvanKoe/dotfiles_2023/blob/main/pictures/walls/Composition/Cobalt%20Blue.jpg)  
+Editor: NeoVim  
+Bar: [AGS](https://aylur.github.io/ags/)  
 Browser: Google Chrome  
 Terminal: [Kitty](https://github.com/kovidgoyal/kitty)  
 Shell: ZSH (with [tmux](https://github.com/tmux/tmux/wiki))  
@@ -44,6 +31,5 @@ Also, as every config, you will need to copy it to your `$HOME` by doing so:
 > cp dotfiles_2023/tmux/* $HOME
 > cp dotfiles_2023/pictures $HOME/Pictures -r
 ```
-> Note that by default, the config looks for pictures in `$HOME/Pictures` but you can change it in `eww/config.json`.
 
-Also, I'm trying to implement a dynamically generated dock (see `eww/config.json`), I will push it soon enough !
+> Please note that I use [hyprpm](https://github.com/hyprwm/hyprland-plugins) to load hyprland plugins, and thus, you should also install it for window bars to work !
