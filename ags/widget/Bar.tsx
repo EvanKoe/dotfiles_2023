@@ -14,13 +14,19 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
-      className="Bar"
+      className="Container"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}
       application={App}
     >
-      <centerbox homogeneous={true}>
+      <centerbox
+				className="Bar"
+				homogeneous={true}
+				margin={12}
+				marginTop={8}
+				marginBottom={8}
+			>
         <box halign={Gtk.Align.START}>
           <Shutdown />
           <ApplicationTitle />

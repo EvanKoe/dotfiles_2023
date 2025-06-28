@@ -3,6 +3,8 @@ local options = {
 	tabstop = 2,
 	mouse = 'a',
 	number = true,
+	foldcolumn = '1',
+	foldmethod = 'manual'
 }
 
 for i, j in pairs(options) do

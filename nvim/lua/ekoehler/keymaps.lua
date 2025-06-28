@@ -6,6 +6,9 @@ vim.keymap.set('n', ';', ':norm A;<CR>')
 vim.keymap.set('n', '<Leader>n', '<C-w><C-w>')
 vim.keymap.set('n', '<Leader>t', ':tabnew<CR>:FzfLua files<CR>')
 
+vim.keymap.set('n', '<Leader>z', ':norm zA<CR>')
+vim.keymap.set('n', '<Leader>Z', ':norm zfi}<CR>')
+
 vim.keymap.set('n', '<Leader>v', ':vsplit<CR>')
 vim.keymap.set('n', '<Leader>h', ':split<CR>')
 vim.keymap.set('n', '<Leader>s', ':split<CR>')

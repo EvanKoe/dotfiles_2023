@@ -1,6 +1,6 @@
 return {
     {
-        "mason-org/mason.nvim",
+        "williamboman/mason.nvim",
         lazy = false,
         config = true
     },
@@ -32,21 +32,25 @@ return {
                 },
             })
 
-            local vue_ls_path = vim.fn.expand("$MASON/packages/vue-language-server")
-            local vue_plugin_path = vue_ls_path .. "/node_modules/@vue/language-server"
+            local vue_ls_path = "/home/ekoehler/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
             lspconfig.ts_ls.setup({
                 init_options = {
                     plugins = {
                         {
                             name = "@vue/typescript-plugin",
-                            location = vue_plugin_path,
+                            location = vue_ls_path,
                             languages = { "vue" },
                         },
                     },
                 },
-                filetypes = { "typescript", "javascript", "vue" },
+                filetypes = { 'typescript', 'javascript', 'typescriptreact', 'vue' },
             })
+
+						lspconfig.qmlls.setup {
+								filetypes = {'qml'},
+								cmd = {'qmlls6'}
+						}
 
             lspconfig.tailwindcss.setup({
                 filetypes = {'vue'}

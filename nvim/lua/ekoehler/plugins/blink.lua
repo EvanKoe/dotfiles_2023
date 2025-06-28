@@ -10,11 +10,11 @@ return {
         opts = {
             tree = { enabled = true },
             indent = {
-                enabled = true,
+                enabled = false,
                 visible = true,
                 blocked = {
-                    buftypes = {},
-                    filetypes = {'mason', 'lazy', 'blink-tree', 'dashboard'},
+                    buftypes = { 'BlinkCmp', 'BlinkCmpMenu' },
+                    filetypes = { 'mason', 'lazy', 'blink', 'blink-tree', 'dashboard' },
                 },
                 static = {
                     enabled = true,
@@ -85,6 +85,11 @@ return {
 				version = '1.*',
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
+				---
+				dependencies = {
+						"moyiz/blink-emoji.nvim",
+						"Kaiser-Yang/blink-cmp-dictionary",
+				},
         opts = {
             -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
             -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -122,22 +127,59 @@ return {
 
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
+								keyword = { range = "full" },
+								accept = {
+									auto_brackets = {
+										enabled = true
+									}
+								},
                 menu = {
                     border = 'single',
                     draw = {
                         treesitter = { "lsp" },
+												columns = {
+													{ "kind_icon", "label", "label_description", gap = 1 }, { "kind" }
+												}
                     },
                 },
                 documentation = {
-                    auto_show = false,
+                    auto_show = true,
                     window = { border = 'single' }
-                }
+                },
+								ghost_text = {
+									enabled = false,
+									show_with_selection = true,
+									show_without_selection = false,
+								}
             },
 
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer' },
+                default = { 'lsp', 'path', 'buffer', 'emoji' },
+								providers = {
+									lsp = {
+										min_keyword_length = 1
+									},
+									buffer = {
+										min_keyword_length = 1
+									},
+									path = {
+										name = 'Path',
+										module = "blink.cmp.sources.path",
+										min_keyword_length = 1,
+										opts = {
+											show_hidden_files_by_default = true
+										}
+									},
+									emoji = {
+										module = "blink-emoji",
+										name = "Emoji",
+										score_offset = 93, -- the higher the number, the higher the priority
+										min_keyword_length = 1,
+										opts = { insert = true }, -- Insert emoji (default) or complete its name
+									},
+								}
             },
 
             -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -148,5 +190,22 @@ return {
             fuzzy = { implementation = "prefer_rust_with_warning" }
         },
         opts_extend = { "sources.default" }
-    }
+    },
+
+		-- Better option than blink.indent for indentation helper
+		{
+				"lukas-reineke/indent-blankline.nvim",
+				main = "ibl",
+				---@module "ibl"
+				---@type ibl.config
+				opts = {},
+				config = function ()
+						require("ibl").setup({
+							exclude = {
+								buftypes = { 'BlinkCmp', 'BlinkCmpMenu' },
+								filetypes = { 'mason', 'lazy', 'blink', 'blink-tree', 'dashboard' },
+							}
+						})
+				end
+		}
 }

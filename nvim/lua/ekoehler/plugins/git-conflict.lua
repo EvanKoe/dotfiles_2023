@@ -8,10 +8,10 @@ local opts = {
 		prev = 'cp'
 	},
 	config = {
-		default_mappings = true,
+		default_mappings = false,
 		default_commands = true,
 		disable_diagnostics = false,
-		list_opener = 'telescope',
+		list_opener = 'fzf',
 		highlights = {
 			incoming = 'DiffAdd',
 			current = 'DiffText'

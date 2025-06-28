@@ -13,7 +13,7 @@ export default function() {
 
   return (
     <box>
-      <box className="Hour">
+      <box className="Date">
         <label>
           { date() }
         </label>
