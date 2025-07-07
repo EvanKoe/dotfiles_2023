@@ -156,29 +156,30 @@ return {
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
-                default = { 'lsp', 'path', 'buffer', 'emoji' },
+                default = { 'lsp', 'path', 'buffer' },
 								providers = {
 									lsp = {
 										min_keyword_length = 1
 									},
 									buffer = {
-										min_keyword_length = 1
+										name = 'BUFFER',
+										min_keyword_length = 2
 									},
 									path = {
-										name = 'Path',
+										name = 'PATH',
 										module = "blink.cmp.sources.path",
 										min_keyword_length = 1,
 										opts = {
 											show_hidden_files_by_default = true
 										}
 									},
-									emoji = {
-										module = "blink-emoji",
-										name = "Emoji",
-										score_offset = 93, -- the higher the number, the higher the priority
-										min_keyword_length = 1,
-										opts = { insert = true }, -- Insert emoji (default) or complete its name
-									},
+									-- emoji = {
+									-- 	module = "blink-emoji",
+									-- 	name = "Emoji",
+									-- 	score_offset = 93, -- the higher the number, the higher the priority
+									-- 	min_keyword_length = 1,
+									-- 	opts = { insert = true }, -- Insert emoji (default) or complete its name
+									-- },
 								}
             },
 

@@ -4,7 +4,8 @@ local options = {
 	mouse = 'a',
 	number = true,
 	foldcolumn = '1',
-	foldmethod = 'manual'
+	foldmethod = 'indent',
+	splitright = true
 }
 
 for i, j in pairs(options) do
@@ -14,6 +15,9 @@ end
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Disable LSP autostart
+-- vim.g.lsp_auto_start = false
 
 vim.diagnostic.config({
 	virtual_text = true,

@@ -52,12 +52,12 @@ require("lazy").setup({
 	}
 })
 
-require('lspconfig').volar.setup({
-    capabilities = capabilities,
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-    init_options = {
-        typescript = {
-						tsdk = vim.fn.expand('$HOME/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib')
-        },
-    },
-})
+-- require('lspconfig').volar.setup({
+--     capabilities = capabilities,
+--     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+--     init_options = {
+--         typescript = {
+-- 						tsdk = vim.fn.expand('$HOME/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib')
+--         },
+--     },
+-- })

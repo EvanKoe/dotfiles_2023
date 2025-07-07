@@ -1,3 +1,4 @@
+-- Remove trailing space when leaving insert mode
 vim.api.nvim_create_autocmd({'BufWrite'}, {
 	pattern = '*',
 	callback = function ()
@@ -6,16 +7,8 @@ vim.api.nvim_create_autocmd({'BufWrite'}, {
 		end
 
 		local pos = vim.api.nvim_win_get_cursor(0)
-		local fileName = vim.api.nvim_buf_get_name(0)
 		vim.cmd [[ :%s/\s\+$//e ]]
 		vim.api.nvim_win_set_cursor(0, pos)
-	end
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-	callback = function ()
-		vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-		vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 	end
 })
 
@@ -23,7 +16,6 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     if vim.fn.argc() == 0 then
-      -- No files passed; let Dashboard load
       return
     end
 
@@ -33,4 +25,31 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			vim.cmd("Dashboard") -- Opens the dashboard
     end
   end,
+})
+
+-- Open all folds on file opened
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = '*',
+  command = 'normal zR'
+})
+
+-- Remove possibility to fold when opening the Dashboard
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { "dashboard", "blink-tree" },
+	callback = function ()
+		-- vim.opt_local.foldenable = false
+		vim.defer_fn(function ()
+			vim.opt_local.foldenable = false
+		end, 0)
+	end
+})
+
+-- Start LSP for vue
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "vue", "typescript", "javascript" },
+  callback = function()
+    vim.lsp.start({ name = "vue_ls" })
+    vim.lsp.start({ name = "ts_ls" })
+    vim.lsp.start({ name = "tailwindcss" })
+  end
 })
