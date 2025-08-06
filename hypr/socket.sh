@@ -3,6 +3,7 @@
 handle() {
   case $1 in
     # workspace*) sleep 0.4 && $HOME/.config/hypr/colorBar.sh;;
+    openwindow*) sleep 0.4 && $HOME/.config/hypr/resize_small_wins.sh $0;;
   esac
 }
 
